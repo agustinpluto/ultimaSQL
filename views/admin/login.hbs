@@ -1,0 +1,26 @@
+<h1>Log In</h1>
+
+{{!-- <h2>Introduce tus datos</h2> <a href="/salir">Salir</a> --}}
+
+<form action="/admin/login" method="post">
+  <div class="mb-3">
+    <input type="text" class="form-control" id="inputUsuario" placeholder="Usuario" name="usuario">
+  </div>
+  {{!-- <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">E-mail</label>
+    <input type="email" class="form-control" id="inputEmail" name="email">
+    <div id="emailHelp" class="form-text">Nunca compartiremos tu e-mail</div>
+  </div>
+  <div class="mb-3"> --}}
+    <input type="password" class="form-control" id="inputContraseña" placeholder="Contraseña" name="password">
+  </div>
+  {{!-- <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div> --}}
+  <button type="submit" class="btn btn-primary">Ingresar</button>
+</form>
+
+{{#if error}}
+    <p>Usuario o Contraseña incorrecta.</p>
+{{/if}}

@@ -1,0 +1,236 @@
+/* 
+font-family: 'Open Sans', sans-serif;
+ */
+body{
+/*     font-family: 'Open Sans', sans-serif; */
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+header{
+    background-color: black;
+    padding: 1em 0;
+}
+
+/* 1em => 16px */
+
+header h1{
+    color: rgb(0, 177, 0);
+    font-size: 2.5em;
+    font-weight: 100; /* finita */
+    font-style: italic;
+    display: inline-block; /* coloca al lado del logo */
+    position: relative;
+    bottom: 30px;
+}
+
+nav{
+    background-color: rgb(8, 36, 0);
+    font-style: normal;
+    font-weight: 200;
+    font-size: 1em;
+    margin-bottom: 8px;
+}
+
+nav ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li{
+    display: inline-block;
+    width: 16.3%;
+}
+
+nav ul li a{
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    padding: 0.2em 0.4em;
+}
+
+nav ul li a:hover{
+    background-color: rgb(142, 255, 89);
+    color: black;
+}
+
+footer{
+    background-color: #ccc;
+    clear: both;
+    color: #333;
+    padding: 3em 0;
+    margin-top: 2 em;
+    text-align: center;
+}
+
+nav ul li a.activo{
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
+.holder{
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+h2{
+    color: rgb(0, 54, 14);
+    font-weight: 400px;
+    margin: 0 0 1em;
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+
+/* .homeimg{
+    margin-bottom: 1.5em;
+}
+ */
+
+.columnas{
+    overflow: hidden;
+}
+
+.bienvenidos, .testimonios{
+    box-sizing: border-box;
+}
+
+.bienvenidos{
+    width: 75%;
+    padding-right: 2em;
+}
+
+.testimonios{
+    width: 25%;
+    margin-top: 5px;
+}
+
+.testimonio{
+    padding: 1em;
+    background-color: #ccc;
+}
+
+.testimonio .cita{
+    font-weight: bold;
+    font-style: italic;
+    font-size: 17px;
+    display: block;
+}
+
+.testimonio .autor{
+    font-size: 0.7em;
+    text-align: center;
+    margin-left: 12px;
+}
+/* 
+fin de home 
+*/
+.historia{
+    font-size: 0.8em;
+}
+
+.persona{
+    width: 18%;
+    border: 1px solid gray;  /* border ANCHO TIPO COLOR */
+    border-radius: 0.25em;
+    float: left;
+    margin-left: 1.25em;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.persona img{
+    border-radius: 50%;
+    box-shadow: 0 0 5 rgb(0, 0, 9);
+     margin: 0.8em 0 1em;
+     max-width: 70%;
+}
+
+.persona h5, .persona h6{
+    text-align: center;
+    font-weight: normal;
+    color: rgb(46, 138, 243);
+    margin: 0;
+}
+
+.persona p{
+    font-size: 0.7em;
+    color: #444;
+    margin: 0 1em 1em;
+}
+
+.persona:first-child{
+    margin-left: 0;
+}
+
+.personas{
+    overflow: hidden;
+}
+
+.persona h5{
+    font-size: 0.9em;
+}
+
+.persona h6{
+    font-size: 0.7em;
+}
+
+/* fin seccion nosotros */
+
+/* inicio servicios */
+
+
+.servicio{
+    border: 1px solid gray;
+    border-radius: 0.7em;
+    margin: 1em 0;
+    padding: 1em;
+    overflow: hidden;
+}
+
+.servicio .info{
+    width: 75%;
+}
+
+.servicio .info h4{
+    color: rgb(46, 138, 243);
+    font-size: 1.2em;
+    font-style: italic;
+    font-weight: 500;
+    margin: 0 0 1em;
+    border-bottom: 1px solid rgb(46, 171, 243);
+    padding-bottom: 0.5em;
+}
+
+.servicio .info p{
+    font-size: 0.8em;
+    line-height: 1.2em;
+}
+
+.servicio img{
+    border-radius: 0.8em;
+}
+
+.servicio:nth-child(even) img{
+    float: right;
+    margin: 0 0 0 1em;
+}
+
+.servicio:nth-child(even) .info{
+    float: left;
+}
+
+.servicio:nth-child(odd) img{
+    float: left;
+    margin: 0 2em 0 0;
+}
+
+/* fin servicio */
