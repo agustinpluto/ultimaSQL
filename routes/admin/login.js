@@ -15,6 +15,9 @@ router.post('/', async (req, res, next) => {
 
     var data = await usuariosModel.getUser(usuario, password)
     if (data != undefined) {
+      req.session.id_usuario = data.id; // id en base de datos
+      req.session.nombre = data.usuario // usuario en base de datos, lo puedo reutilizar
+
       res.redirect('/admin/novedades');
     } else {
       res.render('admin/login', {

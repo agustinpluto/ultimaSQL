@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 -- Volcando datos para la tabla usuarios.usuarios: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
 INSERT INTO `usuarios` (`id`, `usuario`, `email`, `password`) VALUES
-	(1, 'agustin', 'agustinpluto@gmail.com', 'agus1');
+	(1, 'agustin', 'agustinpluto@gmail.com', '1c876ae1ead8fabb1a36e84fe7feda57');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
