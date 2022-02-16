@@ -2,9 +2,6 @@ header {
     text-align: center;
 }
 
-main {
-    margin-top: 50px;
-}
 
 h1, h2 {
     text-align: center;
@@ -16,9 +13,4 @@ label, input{
     font-size: 12px;
     display: block;
     margin: 2px auto;
-}
-
-button {
-    display: block;
-    margin: 1px auto;
 }
