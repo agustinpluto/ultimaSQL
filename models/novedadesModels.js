@@ -17,4 +17,26 @@ async function insertNovedades(obj) {
     }
 }
 
-module.exports = { getNovedades, insertNovedades };
+async function deleteNovedades(id) {
+    var query = "DELETE FROM novedades WHERE id = ?";
+    var rows = await pool.query(query, [id]);
+    return rows;
+}
+
+async function getNovedadesById(id) {
+    var query = "SELECT * FROM novedades WHERE id = ?";
+    var rows = await pool.query(query, [id]);
+    return rows[0];
+}
+
+async function updateNovedades(obj, id) {
+    try {
+        var query = "UPDATE novedades SET ? WHERE id = ?";
+        var rows = await pool.query(query, [obj, id]);
+        return rows;
+        } catch(error) {
+            throw error;
+        }
+    }
+
+module.exports = { getNovedades, insertNovedades, deleteNovedades, getNovedadesById, updateNovedades };

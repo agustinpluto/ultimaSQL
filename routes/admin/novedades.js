@@ -1,6 +1,11 @@
 var express = require('express');
 var router = express.Router();
 var novedadesModels = require('./../../models/novedadesModels');
+var util = require('util');
+var cloudinary = require('cloudinary').v2;
+const uploader = util.promisify(cloudinary.uploader.upload);
+
+
 
 router.get('/', async function(req, res, next) {
   var novedades = await novedadesModels.getNovedades();
@@ -19,10 +24,22 @@ router.get('/agregar', (req, res, next) => {
 });
 
 router.post('/agregar', async (req, res, next) => {
+    
     try {
+
+      var img_id = '';
+      if (req.files && Object.keys(req.files).length > 0) {
+        imagen = req.files.imagen;
+        img_id = (await uploader(imagen.tempFilePath)).public_id;
+        console.log(img_id);
+        console.log(req.body);
+      }
+
       if (req.body.titulo != "" && req.body.subtitulo != "" && req.body.cuerpo != "") {
-        await novedadesModels.insertNovedades(req.body);
+
+        await novedadesModels.insertNovedades({req.body, img_id});
         res.redirect('/admin/novedades');
+
       } else {
         res.render('admin/agregar', {
           layout: 'admin/layout',
@@ -38,6 +55,45 @@ router.post('/agregar', async (req, res, next) => {
         message: 'No se cargo la novedad'
       });
     };
+});
+
+router.get('/eliminar/:id', async (req, res, next) => {
+  var id = req.params.id;
+  await novedadesModels.deleteNovedades(id);
+  res.redirect('/admin/novedades');
+});
+
+router.get('/modificar/:id', async (req, res, next) => {
+  var id = req.params.id;
+  var novedad = await novedadesModels.getNovedadesById(id);
+
+  res.render('admin/modificar', {
+    layout: 'admin/layout',
+    novedad
+  });
+});
+
+router.post('/modificar', async (req, res, next) => {
+  try {
+
+    var obj = {
+      titulo: req.body.titulo,
+      subtitulo: req.body.subtitulo,
+      cuerpo: req.body.cuerpo
+    }
+    console.log(obj)
+    var id_nov = req.body.id;
+    await novedadesModels.updateNovedades(obj, id_nov);
+    res.redirect('/admin/novedades');
+
+  } catch(error) {
+    console.log(error);
+    res.render('admin/modificar', {
+      layout: 'admin/layout',
+      error: true,
+      message: 'No se modifico la novedad'
+    })
+  }
 });
 
 module.exports = router; 

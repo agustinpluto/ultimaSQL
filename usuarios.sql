@@ -23,17 +23,15 @@ CREATE TABLE IF NOT EXISTS `novedades` (
   `titulo` varchar(250) DEFAULT NULL,
   `subtitulo` text DEFAULT NULL,
   `cuerpo` text DEFAULT NULL,
+  `img_id` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
 
--- Volcando datos para la tabla usuarios.novedades: ~5 rows (aproximadamente)
+-- Volcando datos para la tabla usuarios.novedades: ~3 rows (aproximadamente)
 /*!40000 ALTER TABLE `novedades` DISABLE KEYS */;
-INSERT INTO `novedades` (`id`, `titulo`, `subtitulo`, `cuerpo`) VALUES
-	(1, 'Noticia 1', 'Subtitulo1 ', 'Este es el cuerpo de la noticia 1'),
-	(2, 'Noticia 2', 'Subtitulo2 ', 'Este es el cuerpo de la noticia 2'),
-	(3, 'addasdasda', 'asdsadsads', 'adassdadsa'),
-	(4, 'Noticia 3', 'Subtitulo3', 'lorem ipsum'),
-	(5, 'asdasdsada', 'asd', 'asdddddd');
+INSERT INTO `novedades` (`id`, `titulo`, `subtitulo`, `cuerpo`, `img_id`) VALUES
+	(1, 'Noticia 1', 'Subtitulo1 ', 'Este es el cuerpo de la noticia 1', NULL),
+	(2, 'Noticia 2 editada', 'akldsalkhndalnds', 'jasdkjabnskjdsabkjbskdjbaskjbjasdkjabnskjdsabkjbskdjbaskjbjasdkjabnskjdsabkjbskdjbaskjbjasdkjabnskjdsabkjbskdjbaskjb', NULL);
 /*!40000 ALTER TABLE `novedades` ENABLE KEYS */;
 
 -- Volcando estructura para tabla usuarios.usuarios
