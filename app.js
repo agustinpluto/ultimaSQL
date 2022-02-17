@@ -26,16 +26,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use(session({
-  secret: 'PWDASadj122',
+  secret: 'hola',
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false
 }));
 
 
 secured = async (req, res, next) => {
   try {
-    console.log(req.session.id);
-    if (req.session.id) {
+
+    console.log('---------------------')
+    console.log(req.session.id_usuario);
+    console.log('---------------------')
+
+    if (req.session.id_usuario) {
       next();
     } else {
       res.redirect('/admin/login')

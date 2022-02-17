@@ -17,16 +17,35 @@
 CREATE DATABASE IF NOT EXISTS `usuarios` /*!40100 DEFAULT CHARACTER SET utf8mb3 */;
 USE `usuarios`;
 
+-- Volcando estructura para tabla usuarios.novedades
+CREATE TABLE IF NOT EXISTS `novedades` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `titulo` varchar(250) DEFAULT NULL,
+  `subtitulo` text DEFAULT NULL,
+  `cuerpo` text DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
+
+-- Volcando datos para la tabla usuarios.novedades: ~5 rows (aproximadamente)
+/*!40000 ALTER TABLE `novedades` DISABLE KEYS */;
+INSERT INTO `novedades` (`id`, `titulo`, `subtitulo`, `cuerpo`) VALUES
+	(1, 'Noticia 1', 'Subtitulo1 ', 'Este es el cuerpo de la noticia 1'),
+	(2, 'Noticia 2', 'Subtitulo2 ', 'Este es el cuerpo de la noticia 2'),
+	(3, 'addasdasda', 'asdsadsads', 'adassdadsa'),
+	(4, 'Noticia 3', 'Subtitulo3', 'lorem ipsum'),
+	(5, 'asdasdsada', 'asd', 'asdddddd');
+/*!40000 ALTER TABLE `novedades` ENABLE KEYS */;
+
 -- Volcando estructura para tabla usuarios.usuarios
 CREATE TABLE IF NOT EXISTS `usuarios` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `usuario` varchar(30) DEFAULT NULL,
   `email` varchar(30) DEFAULT NULL,
   `password` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 
--- Volcando datos para la tabla usuarios.usuarios: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla usuarios.usuarios: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
 INSERT INTO `usuarios` (`id`, `usuario`, `email`, `password`) VALUES
 	(1, 'agustin', 'agustinpluto@gmail.com', '1c876ae1ead8fabb1a36e84fe7feda57'),
