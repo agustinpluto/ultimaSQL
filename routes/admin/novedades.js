@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var novedadesModels = require('./../../models/novedadesModels');
 var util = require('util');
+
 var cloudinary = require('cloudinary').v2;
 const uploader = util.promisify(cloudinary.uploader.upload);
 const destroy = util.promisify(cloudinary.uploader.destroy);
@@ -26,19 +27,26 @@ router.post('/agregar', async (req, res, next) => {
     
     try {
 
-        var img_id = '';
+        // var img_id = '';
+
         if (req.files && Object.keys(req.files).length > 0) {
           imagen = req.files.imagen;
-          img_id = (await uploader(imagen.tempFilePath)).public_id;
-          console.log(img_id);
-          console.log(req.body);
+          imagen_id = (await uploader(imagen.tempFilePath)).public_id;
+          
+          var obj = {
+            titulo: req.body.titulo,
+            subtitulo: req.body.subtitulo,
+            cuerpo: req.body.cuerpo,
+            img_id: imagen_id
+          }
+          // console.log(img_id);
+          // console.log(req.body);
       }
 
       if (req.body.titulo != "" && req.body.subtitulo != "" && req.body.cuerpo != "") {
 
-        await novedadesModels.insertNovedades({
-          req.body, img_id
-        });
+        console.log(obj)
+        await novedadesModels.insertNovedades(obj);
         res.redirect('/admin/novedades');
 
       } else {
