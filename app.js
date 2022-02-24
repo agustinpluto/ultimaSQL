@@ -9,6 +9,10 @@ var session = require('express-session');
 
 var fileUploader = require('express-fileUpload');
 
+var cors = require('cors');
+
+var apiRouter = require('./routes/api');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/admin/login');
@@ -26,13 +30,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
 app.use(session({
   secret: 'hola',
   resave: false,
   saveUninitialized: false
 }));
 
+app.use('/api', cors(), apiRouter);
 
 secured = async (req, res, next) => {
   try {
